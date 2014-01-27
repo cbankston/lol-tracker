@@ -1,0 +1,5 @@
+<div>
+  <img src="{{=it.summoner.image_path()}}" height="78" class="pull-left" />
+  <h1>{{=it.summoner.name}}</h1>
+  <p>Level {{=it.summoner.summonerLevel}} Summoner</p>
+</div>

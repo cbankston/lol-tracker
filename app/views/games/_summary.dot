@@ -1,0 +1,44 @@
+<div class="row" data-game-id="{{=it.game.gameId}}">
+  <div class="col-xs-2 col-sm-2 col-md-2">
+    <img src="{{=it.game.champion.image_path()}}" title="{{=it.game.champion.name}}" height="62" />
+    <br />
+    Level {{=it.game.stats.level}}
+  </div>
+  <div class="col-xs-7 col-sm-4 col-md-4">
+    <p class="text-center">
+      {{=it.game.stats.win}} ({{=it.game.subType}} {{=it.game.gameMode}})
+      <br />
+      {{=it.game.map}}
+      <br />
+      {{=it.game.stats.timePlayed}}
+      <br />
+      {{=it.game.createDate}}
+    </p>
+  </div>
+  <div class="hidden-xs col-sm-3 col-md-3">
+    <p class="text-center">
+      Item 1: {{=it.game.stats.item1}}
+      <br />
+      Item 2: {{=it.game.stats.item2}}
+      <br />
+      Item 3: {{=it.game.stats.item3}}
+      <br />
+      Item 4: {{=it.game.stats.item4}}
+      <br />
+      Item 5: {{=it.game.stats.item5}}
+      <br />
+      Item 6: {{=it.game.stats.item6}}
+    </p>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-3">
+    <p class="text-right">
+      {{=it.game.stats.championsKilled}} / {{=it.game.stats.numDeaths}} / {{=it.game.stats.assists}}
+      <br />
+      CS: {{=it.game.stats.minionsKilled}}
+      <br />
+      Gold: {{=it.game.stats.goldEarned}}
+      <br />
+      Damage: {{=it.game.stats.totalDamageDealtToChampions}}
+    </p>
+  </div>
+</div>

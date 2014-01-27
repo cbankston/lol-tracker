@@ -1,0 +1,17 @@
+<h2>Summoners</h2>
+
+<div class="row">
+  {{~it.summoners :summoner:index}}
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+      <div class="thumbnail">
+        <a href="/summoners/{{=summoner._id}}">
+          <img src="{{=summoner.image_path()}}" />
+          <div class="caption">
+            <h4>{{=summoner.name}}</h4>
+            <p>Level {{=summoner.summonerLevel}}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  {{~}}
+</div>

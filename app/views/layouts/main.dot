@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{# def.title || 'Example Site' }}</title>
+  <meta name="description" content="{{# def.description || "" }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {{=it.css("application.css") }}
+</head>
+<body>
+  {{= it.partial('shared/navbar.dot') }}
+  <div class="container">
+    {{= it.content() }}
+  </div>
+  {{= it.js("application.js") }}
+</body>
+<html>

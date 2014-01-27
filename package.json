@@ -1,0 +1,24 @@
+{
+  "name": "lol-tracker",
+  "version": "0.0.1",
+  "dependencies": {
+    "mongoose": "~3.8.4",
+    "coffee-script": "~1.6.3",
+    "irelia": "~0.1.4",
+    "async": "~0.2.9",
+    "underscore": "~1.5.2",
+    "express": "~3.4.8",
+    "dot": "~1.0.2",
+    "consolidate": "~0.10.0",
+    "connect-mincer": "~1.0.0",
+    "comprise": "~0.1.0",
+    "moment": "~2.5.0",
+    "nconf": "~0.6.9"
+  },
+  "scripts": {
+    "start": "nodemon -e coffee worker.coffee"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}

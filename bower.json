@@ -1,0 +1,19 @@
+{
+  "name": "lol-tracker",
+  "version": "0.0.1",
+  "authors": [
+    "Chris Bankston <chris@chrisbankston.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.0.3"
+  }
+}

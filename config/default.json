@@ -1,0 +1,14 @@
+{
+  "mongo": {
+    "server": "localhost",
+    "database": "lol_tracker",
+    "user": "lol_tracker",
+    "password": null,
+    "connectionString": null
+  },
+  "riot_api": {
+    "endpoint": "http://prod.api.pvp.net/api/lol/",
+    "key": null,
+    "debug": false
+  }
+}

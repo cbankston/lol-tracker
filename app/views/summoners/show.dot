@@ -1,0 +1,15 @@
+{{= it.partial('summoners/_summary', { summoner: it.summoner }) }}
+
+<h2>Match History</h2>
+
+<div class="row">
+  <div class="col-md-12">
+    {{~it.games :game:index}}
+      <div class="thumbnail {{=game.win_css()}}">
+        <a href="/summoners/{{=it.summoner._id}}/games/{{=game.gameId}}">
+          {{= it.partial('games/_summary', { game: game, summoner: it.summoner }) }}
+        </a>
+      </div>
+    {{~}}
+  </div>
+</div>
