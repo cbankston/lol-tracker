@@ -7,10 +7,15 @@ game_version = '4.1.2'
 base_url = "http://ddragon.leagueoflegends.com/cdn/#{game_version}/"
 
 module.exports.champion_image_url = "#{base_url}img/champion/"
+module.exports.item_image_url = "#{base_url}img/item/"
 module.exports.profile_icon_image_url = "#{base_url}img/profileicon/"
 
 module.exports.getChampions = (next) ->
   url = buildApiUrl('champion.json')
+  makeRequest(url, next)
+
+module.exports.getItems = (next) ->
+  url = buildApiUrl('item.json')
   makeRequest(url, next)
 
 buildApiUrl = (path) ->

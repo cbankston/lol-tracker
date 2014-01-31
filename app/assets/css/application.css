@@ -1,5 +1,7 @@
 //= require reset
 //= require bootstrap/dist/css/bootstrap
 
-body {
+.empty-item-slot, .spacer-item-slot {
+  display: inline-block;
+  width: 32px;
 }

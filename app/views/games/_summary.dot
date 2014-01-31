@@ -16,19 +16,48 @@
     </p>
   </div>
   <div class="hidden-xs col-sm-3 col-md-3">
-    <p class="text-center">
-      Item 1: {{=it.game.stats.item1}}
-      <br />
-      Item 2: {{=it.game.stats.item2}}
-      <br />
-      Item 3: {{=it.game.stats.item3}}
-      <br />
-      Item 4: {{=it.game.stats.item4}}
-      <br />
-      Item 5: {{=it.game.stats.item5}}
-      <br />
-      Item 6: {{=it.game.stats.item6}}
-    </p>
+    <div class="text-center">
+      <div class="row">
+        {{? it.game.stats.item0 }}
+          <img src="{{=it.game.stats.item0.image_path()}}" title="{{=it.game.stats.item0.name}}" height="32" />
+        {{??}}
+          <div class="empty-item-slot"></div>
+        {{?}}
+        {{? it.game.stats.item1 }}
+          <img src="{{=it.game.stats.item1.image_path()}}" title="{{=it.game.stats.item1.name}}" height="32" />
+        {{??}}
+          <div class="empty-item-slot"></div>
+        {{?}}
+        {{? it.game.stats.item2 }}
+          <img src="{{=it.game.stats.item2.image_path()}}" title="{{=it.game.stats.item2.name}}" height="32" />
+        {{??}}
+          <div class="empty-item-slot"></div>
+        {{?}}
+        {{? it.game.stats.item6 }}
+          <img src="{{=it.game.stats.item6.image_path()}}" title="{{=it.game.stats.item6.name}}" height="32" />
+        {{??}}
+          <div class="empty-item-slot"></div>
+        {{?}}
+      </div>
+      <div class="row">
+        {{? it.game.stats.item3 }}
+          <img src="{{=it.game.stats.item3.image_path()}}" title="{{=it.game.stats.item3.name}}" height="32" />
+        {{??}}
+          <div class="empty-item-slot"></div>
+        {{?}}
+        {{? it.game.stats.item4 }}
+          <img src="{{=it.game.stats.item4.image_path()}}" title="{{=it.game.stats.item4.name}}" height="32" />
+        {{??}}
+          <div class="empty-item-slot"></div>
+        {{?}}
+        {{? it.game.stats.item5 }}
+          <img src="{{=it.game.stats.item5.image_path()}}" title="{{=it.game.stats.item5.name}}" height="32" />
+        {{??}}
+          <div class="empty-item-slot"></div>
+        {{?}}
+        <div class="spacer-item-slot"></div>
+      </div>
+    </div>
   </div>
   <div class="col-xs-3 col-sm-3 col-md-3">
     <p class="text-right">

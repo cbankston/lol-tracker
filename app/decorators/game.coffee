@@ -1,8 +1,11 @@
 _ = require 'underscore'
+async = require 'async'
 moment = require 'moment'
 irelia = require '../../lib/irelia'
 Champion = require '../dal/champion'
 ChampionDecorator = require './champion'
+Item = require '../dal/item'
+ItemDecorator = require './item'
 
 formatNumber = (num) ->
   num = num || 0
@@ -16,16 +19,28 @@ class GameDecorator
   decorate: (next) ->
     attributes = @buildAttributes()
 
-    unless attributes.champion
-      @populateChampion(attributes, next)
-    else
+    async.parallel [
+      (callback) => _this.populateChampion(attributes, callback),
+      (callback) => _this.populateItems(attributes, callback)
+    ], (err, results) ->
       next(err, attributes)
 
   populateChampion: (attributes, next) ->
     Champion.find attributes.championId, (err, champion) ->
       ChampionDecorator champion, (err, decorated_champion) ->
         attributes.champion = decorated_champion
-        next(err, attributes)
+        next(err)
+
+  populateItems: (attributes, next) ->
+    async.times 7, (n, callback) ->
+      key = "item#{n}"
+      return callback(null) unless attributes.stats[key]
+      Item.find attributes.stats[key], (err, item) ->
+        ItemDecorator item, (err, item) ->
+          attributes.stats[key] = item
+          callback(err)
+    , (err) ->
+      next(err, attributes)
 
   buildAttributes: () ->
     attributes = _.extend @model,
