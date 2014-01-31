@@ -19,7 +19,7 @@ importGame = (summoner, game, next) ->
     ,
     (game, callback) ->
       if game.was_just_created
-        importFellowPlayers game.fellowPlayers, callback
+        importFellowPlayers(game.fellowPlayers || [], callback)
       else
         callback(null)
   ], (err) ->
