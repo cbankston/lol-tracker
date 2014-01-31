@@ -13,10 +13,7 @@ class ChampionDecorator
       image_path: image_path
 
 image_path = () ->
-  "#{DDragon.champion_image_url}#{image_name(@name)}.png"
-
-image_name = (name) ->
-  name.charAt(0).toUpperCase() + name.toLowerCase().slice(1)
+  "#{DDragon.champion_image_url}#{@image}"
 
 module.exports = (model, next) ->
   new ChampionDecorator(model).decorate(next)

@@ -8,11 +8,17 @@ champion = new Schema
   attackRank: 'number',
   rankedPlayEnabled: 'boolean',
   name: 'string',
+  title: 'string',
+  blurb: 'string',
+  image: 'string',
   botEnabled: 'boolean',
   difficultyRank: 'number',
   active: 'boolean',
   freeToPlay: 'boolean',
-  magicRank: 'number'
+  magicRank: 'number',
+  tags: 'array',
+  partype: 'string',
+  stats: Schema.Types.Mixed
 ,
   _id: true,
 #  use$SetOnSave: false

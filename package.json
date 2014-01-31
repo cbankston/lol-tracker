@@ -13,7 +13,8 @@
     "connect-mincer": "~1.0.0",
     "comprise": "~0.1.0",
     "moment": "~2.5.0",
-    "nconf": "~0.6.9"
+    "nconf": "~0.6.9",
+    "request": "~2.33.0"
   },
   "scripts": {
     "start": "nodemon -e coffee worker.coffee"

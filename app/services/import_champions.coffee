@@ -5,6 +5,8 @@ Champion = require '../dal/champion'
 
 module.exports = (next) ->
   lookupChampions (err, champions) ->
+    return next(err) if err
+
     async.each champions, (champion_dto, callback) ->
       attributes = extractAttributes(champion_dto)
       Champion.createOrUpdate attributes, callback
