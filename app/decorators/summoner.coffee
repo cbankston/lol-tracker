@@ -1,5 +1,5 @@
 _ = require 'underscore'
-cdn_url = 'http://ddragon.leagueoflegends.com/cdn/3.15.5/img/profileicon/'
+DDragon = require '../../lib/ddragon'
 
 class SummonerDecorator
   constructor: (@model) ->
@@ -13,7 +13,7 @@ class SummonerDecorator
       image_path: image_path
 
 image_path = () ->
-  "#{cdn_url}#{@profileIconId}.png"
+  "#{DDragon.profile_icon_image_url}#{@profileIconId}.png"
 
 module.exports = (model, next) ->
   new SummonerDecorator(model).decorate(next)

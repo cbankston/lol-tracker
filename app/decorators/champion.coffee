@@ -1,5 +1,5 @@
 _ = require 'underscore'
-cdn_url = 'http://ddragon.leagueoflegends.com/cdn/3.15.5/img/champion/'
+DDragon = require '../../lib/ddragon'
 
 class ChampionDecorator
   constructor: (@model) ->
@@ -13,7 +13,7 @@ class ChampionDecorator
       image_path: image_path
 
 image_path = () ->
-  "#{cdn_url}#{image_name(@name)}.png"
+  "#{DDragon.champion_image_url}#{image_name(@name)}.png"
 
 image_name = (name) ->
   name.charAt(0).toUpperCase() + name.toLowerCase().slice(1)
