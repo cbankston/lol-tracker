@@ -1,0 +1,26 @@
+{{= it.partial('summoners/_summary', { summoner: it.summoner }) }}
+{{= it.partial('summoners/_navbar', { summoner: it.summoner }) }}
+
+<h2>Champions</h2>
+
+<div class="row">
+  {{~it.summoner_champions :summoner_champion:index}}
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+      <div class="thumbnail">
+        <a href="/summoners/{{=it.summoner._id}}/champions/{{=summoner_champion.championId}}">
+          <img src="{{=summoner_champion.champion.image_path()}}" />
+          <div class="caption">
+            <h4>{{=summoner_champion.champion.name}}</h4>
+            <p>
+              Total: {{=summoner_champion.games.total}}
+              <br />
+              Won: {{=summoner_champion.games.won}}
+              <br />
+              Lost: {{=summoner_champion.games.lost}}
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  {{~}}
+</div>

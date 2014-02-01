@@ -14,5 +14,8 @@ module.exports.findOrCreate = (attributes, next) ->
 module.exports.find = (game_id, summoner_id, next) ->
   Game.findOne { gameId: game_id, summonerId: summoner_id }, next
 
+module.exports.findByChampionIdAndSummonerId = (champion_id, summoner_id, next) ->
+  Game.find( summonerId: summoner_id, championId: champion_id ).sort('-createDate').exec(next)
+
 module.exports.findBySummonerId = (summoner_id, next) ->
   Game.find( summonerId: summoner_id ).sort('-createDate').exec(next)

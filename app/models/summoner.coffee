@@ -8,7 +8,8 @@ summoner = new Schema
   summonerLevel: 'number',
   revisionDate: 'number',
   revisionDateStr: 'string'
-  update: 'boolean', default: false
+  update: {type: 'boolean', default: false},
+  champions: {type: 'array', default: []}
 ,
   _id: true,
 #  use$SetOnSave: false

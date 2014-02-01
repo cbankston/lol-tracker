@@ -4,7 +4,7 @@
   {{~it.summoners :summoner:index}}
     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
       <div class="thumbnail">
-        <a href="/summoners/{{=summoner._id}}">
+        <a href="/summoners/{{=summoner._id}}/champions">
           <img src="{{=summoner.image_path()}}" />
           <div class="caption">
             <h4>{{=summoner.name}}</h4>

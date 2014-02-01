@@ -10,13 +10,10 @@ index = (req, res) ->
       res.render 'summoners/index', summoners: summoners
 
 show = (req, res) ->
-  Summoner.find req.params.id, (err, summoner) ->
+  Summoner.find req.params.summoner_id, (err, summoner) ->
     SummonerDecorator summoner, (err, summoner) ->
-      Game.findBySummonerId summoner._id, (err, games) ->
-        async.map games, GameDecorator, (err, games) ->
-          res.render 'summoners/show',
-            summoner: summoner,
-            games: games
+      res.render 'summoners/show',
+        summoner: summoner
 
 create = (req, res) ->
   res.render 'summoners/create'

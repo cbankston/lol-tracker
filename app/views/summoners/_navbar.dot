@@ -1,0 +1,17 @@
+<br />
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="/summoners/{{=it.summoner._id}}/champions">
+          Champions
+        </a>
+      </li>
+      <li>
+        <a href="/summoners/{{=it.summoner._id}}/games">
+          Match History
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

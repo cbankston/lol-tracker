@@ -21,4 +21,9 @@ game = new Schema
   _id: true,
 #  use$SetOnSave: false
 
+game.methods.won = () ->
+  @stats.win
+
+game.index {summonerId: 1, championId: 1}
+
 module.exports = mongoose.model('Game', game)
