@@ -9,7 +9,6 @@ config = (app) ->
   dot(app);
   mincer(app);
 
-  app.use express.favicon()
   app.use express.methodOverride() # Allows the use of HTTP 'DELETE' AND 'PUT' methods.
   app.use express.logger()
   app.use app.router
