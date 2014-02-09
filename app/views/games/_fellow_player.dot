@@ -1,0 +1,4 @@
+<a href="/summoners/{{=it.player.summonerId}}/games/{{=it.game.gameId}}" class="list-group-item">
+  <img src="{{=it.player.champion.image_path()}}" height="38" />
+  <span class="h6">{{=it.player.summoner.name}}</span>
+</a>

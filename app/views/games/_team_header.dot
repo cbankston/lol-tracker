@@ -1,0 +1,5 @@
+{{? it.teamId == it.winning_team_id }}
+  <span class="list-group-item list-group-item-success">Winning Team</span>
+{{??}}
+  <span class="list-group-item list-group-item-danger">Losing Team</span>
+{{?}}

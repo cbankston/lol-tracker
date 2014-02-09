@@ -5,10 +5,100 @@
   {{= it.partial('games/_summary', { game: it.game, summoner: it.summoner }) }}
 </div>
 
-<div>
-  {{~Object.keys(it.game.stats) :name}}
-    <div>
-      {{=name}}: {{=it.game.stats[name]}}
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Combat</div>
+      <div class="panel-body">
+        Kills: {{=it.game.stats.championsKilled}}
+        <br />Deaths: {{=it.game.stats.numDeaths}}
+        <br />Assists: {{=it.game.stats.assists}}
+        <br />Killing Spees: {{=it.game.stats.killingSprees}}
+        <br />Double Kills: {{=it.game.stats.doubleKills}}
+        <br />Tiple Kills: {{=it.game.stats.tripleKills}}
+        <br />Quadra Kills: {{=it.game.stats.quadraKills}}
+        <br />Largest Killing Spree: {{=it.game.stats.largestKillingSpree}}
+        <br />Largest Multi Kill: {{=it.game.stats.largestMultiKill}}
+      </div>
     </div>
-  {{~}}
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Players</div>
+      <div class="panel-body">
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="list-group">
+              {{= it.partial('games/_team_header', { teamId: '100', winning_team_id: it.game.winning_team_id }) }}
+              {{~it.teams[100] :player}}
+                {{= it.partial('games/_fellow_player', { player: player, game: it.game }) }}
+              {{~}}
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="list-group">
+              {{= it.partial('games/_team_header', { teamId: '200', winning_team_id: it.game.winning_team_id }) }}
+              {{~it.teams[200] :player}}
+                {{= it.partial('games/_fellow_player', { player: player, game: it.game }) }}
+              {{~}}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Damage Done</div>
+      <div class="panel-body">
+        Damage Dealt to Champions: {{=it.game.stats.totalDamageDealtToChampions}}
+        <br />Physical Damage Dealt to Champions: {{=it.game.stats.physicalDamageDealtToChampions}}
+        <br />Magic Damage Dealt to Champions: {{=it.game.stats.magicDamageDealtToChampions}}
+        <br />True Damage Dealt to Champions: {{=it.game.stats.trueDamageDealtToChampions}}
+        <br />Total Damage Dealt: {{=it.game.stats.totalDamageDealt}}
+        <br />Physical Damage Dealt: {{=it.game.stats.physicalDamageDealtPlayer}}
+        <br />Magic Damage Dealt: {{=it.game.stats.magicDamageDealtPlayer}}
+        <br />True Damage Dealt: {{=it.game.stats.trueDamageDealtPlayer}}
+        <br />Largest Critical Strike: {{=it.game.stats.largestCriticalStrike}}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Damage Taken & Healed</div>
+      <div class="panel-body">
+        Damage Taken: {{=it.game.stats.totalDamageTaken}}
+        <br />Physical Damage Taken: {{=it.game.stats.physicalDamageTaken}}
+        <br />Magic Damage Taken: {{=it.game.stats.magicDamageTaken}}
+        <br />True Damage Taken: {{=it.game.stats.trueDamageTaken}}
+        <br />Healing Done: {{=it.game.stats.totalHeal}}
+        <br />Total Units Healed: {{=it.game.stats.totalUnitsHealed}}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Misc</div>
+      <div class="panel-body">
+        Gold Earned: {{=it.game.stats.goldEarned}}
+        <br />Gold Spent: {{=it.game.stats.goldSpent}}
+        <br />Level: {{=it.game.stats.level}}
+        <br />Turrets Destroyed: {{=it.game.stats.turretsKilled}}
+        <br />Wards Placed: {{=it.game.stats.wardPlaced}}
+        <br />Inhibitors Destroyed: {{=it.game.stats.barracksKilled}}
+        <br />Minions Slain: {{=it.game.stats.minionsKilled}}
+        <br />Neutral Monsters Killed: {{=it.game.stats.neutralMinionsKilled}}
+        <br />Neutral Monsters Killed Your Jungle: {{=it.game.stats.neutralMinionsKilledYourJungle}}
+        <br />Neutral Monsters Killed Enemy Jungle: {{=it.game.stats.neutralMinionsKilledEnemyJungle}}
+        <br />Total Time Crowd Control Dealt: {{=it.game.stats.totalTimeCrowdControlDealt}}
+      </div>
+    </div>
+  </div>
 </div>

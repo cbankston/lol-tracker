@@ -49,7 +49,8 @@ class GameDecorator
       createDate: @createDate(),
       subType: @subType(),
       map: @map(),
-      win_css: win_css
+      win_css: win_css,
+      winning_team_id: @winningTeamId()
 
     attributes.stats = _.extend @model.stats,
       assists: @model.stats.assists || 0,
@@ -126,6 +127,11 @@ class GameDecorator
 
   win: () ->
     if @model.stats.win then 'Victory' else 'Defeat'
+
+  winningTeamId: () ->
+    return @model.teamId if @model.stats.win
+    return 200 if @model.teamId == '100'
+    return 100 if @model.teamId == '200'
 
 win_css = () ->
   'success'
