@@ -2,7 +2,7 @@ request = require 'request'
 
 debug = false
 language = 'en_US'
-game_version = '4.1.2'
+game_version = '4.2.6'
 
 base_url = "http://ddragon.leagueoflegends.com/cdn/#{game_version}/"
 
