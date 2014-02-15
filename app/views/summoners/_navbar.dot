@@ -12,6 +12,18 @@
           Match History
         </a>
       </li>
+      <li>
+        <a href="/summoners/{{=it.summoner._id}}/stats">
+          Stats
+        </a>
+      </li>
+      {{? it.champion_id}}
+      <li>
+        <a href="/summoners/{{=it.summoner._id}}/champions/{{=it.champion_id}}/stats">
+          Champion Stats
+        </a>
+      </li>
+      {{?}}
     </ul>
   </div>
 </nav>

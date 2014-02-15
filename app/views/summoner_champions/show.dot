@@ -1,6 +1,6 @@
 {{= it.partial('summoners/_summary', { summoner: it.summoner }) }}
 
-{{= it.partial('summoners/_navbar', { summoner: it.summoner }) }}
+{{= it.partial('summoners/_navbar', { summoner: it.summoner, champion_id: it.champion.id }) }}
 
 <h2>Match History</h2>
 

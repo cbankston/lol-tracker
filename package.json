@@ -14,7 +14,8 @@
     "comprise": "~0.1.0",
     "moment": "~2.5.0",
     "nconf": "~0.6.9",
-    "request": "~2.33.0"
+    "request": "~2.33.0",
+    "node-sass": "~0.8.1"
   },
   "scripts": {
     "start": "nodemon -e coffee worker.coffee"

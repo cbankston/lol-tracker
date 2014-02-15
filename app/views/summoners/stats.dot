@@ -1,0 +1,26 @@
+{{= it.partial('summoners/_summary', { summoner: it.summoner }) }}
+{{= it.partial('summoners/_navbar', { summoner: it.summoner }) }}
+
+<div class="panel panel-default">
+  <div class="panel-heading">Minion Kills</div>
+  <div class="panel-body">
+    <div class="chart-default js-cs-chart">
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Damage to Champions</div>
+  <div class="panel-body">
+    <div class="chart-default js-damage-chart">
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Gold Earned</div>
+  <div class="panel-body">
+    <div class="chart-default js-gold-chart">
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 //= require reset
 //= require bootstrap/dist/css/bootstrap
+//= require charts
 
 .empty-item-slot, .spacer-item-slot {
   display: inline-block;

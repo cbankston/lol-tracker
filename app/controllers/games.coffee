@@ -6,13 +6,19 @@ SummonerDecorator = require '../decorators/summoner'
 FellowPlayerDecorator = require '../decorators/fellow_player'
 
 index = (req, res) ->
-  Summoner.find req.params.summoner_id, (err, summoner) ->
-    SummonerDecorator summoner, (err, summoner) ->
-      Game.findBySummonerId summoner._id, (err, games) ->
+  Game.findBySummonerId req.params.summoner_id, (err, games) ->
+    res.format
+      html: () ->
         async.map games, GameDecorator, (err, games) ->
-          res.render 'games/index',
-            summoner: summoner,
-            games: games
+          Summoner.find req.params.summoner_id, (err, summoner) ->
+            SummonerDecorator summoner, (err, summoner) ->
+              data =
+                games: games
+                summoner: summoner
+
+              res.render 'games/index', data
+      json: () ->
+        res.json games
 
 show = (req, res) ->
   results = {}

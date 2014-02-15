@@ -15,6 +15,12 @@ show = (req, res) ->
       res.render 'summoners/show',
         summoner: summoner
 
+stats = (req, res) ->
+  Summoner.find req.params.summoner_id, (err, summoner) ->
+    SummonerDecorator summoner, (err, summoner) ->
+      res.render 'summoners/stats',
+        summoner: summoner
+
 create = (req, res) ->
   res.render 'summoners/create'
 
@@ -26,6 +32,7 @@ destroy = (req, res) ->
 
 module.exports.index = index
 module.exports.show = show
+module.exports.stats = stats
 module.exports.create = create
 module.exports.update = update
 module.exports.destroy = destroy
