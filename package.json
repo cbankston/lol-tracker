@@ -4,7 +4,7 @@
   "dependencies": {
     "mongoose": "~3.8.4",
     "coffee-script": "~1.6.3",
-    "irelia": "~0.1.4",
+    "irelia": "cbankston/irelia",
     "async": "~0.2.9",
     "underscore": "~1.5.2",
     "express": "~3.4.8",
@@ -15,7 +15,8 @@
     "moment": "~2.5.0",
     "nconf": "~0.6.9",
     "request": "~2.33.0",
-    "node-sass": "~0.8.1"
+    "node-sass": "~0.8.1",
+    "coffee-resque": "~0.1.9"
   },
   "scripts": {
     "start": "nodemon -e coffee worker.coffee"

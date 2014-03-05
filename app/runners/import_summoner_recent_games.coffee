@@ -1,21 +1,21 @@
 async = require 'async'
 irelia = require '../../lib/irelia'
 Game = require '../dal/game'
-importSummonerQueue = require '../queues/import_summoner'
+ImportSummonerQueue = require '../queues/import_summoner'
 TrackSummonerChampionGame = require './track_summoner_champion_game'
 
-module.exports = (summoner, next) ->
-  lookupSummonerGamesDto summoner._id, (err, games_dto) ->
+module.exports = (summoner_id, next) ->
+  lookupSummonerGamesDto summoner_id, (err, games_dto) ->
     return next(err) if err
     async.each games_dto.games,
       (game, callback) ->
-        importGame(summoner, game, callback)
+        importGame(summoner_id, game, callback)
       , next
 
-importGame = (summoner, game, next) ->
+importGame = (summoner_id, game, next) ->
   async.waterfall [
     (callback) ->
-      attributes = extractAttributes(summoner, game)
+      attributes = extractAttributes(summoner_id, game)
       Game.findOrCreate attributes, callback
     ,
     (game, callback) ->
@@ -34,7 +34,7 @@ importGame = (summoner, game, next) ->
 importFellowPlayers = (game, next) ->
   async.each game.fellowPlayers || []
     , (player, callback) ->
-      importSummonerQueue.push(player.summonerId)
+      ImportSummonerQueue.push(player.summonerId)
       callback()
     , (err) ->
       next(err, game)
@@ -42,8 +42,8 @@ importFellowPlayers = (game, next) ->
 lookupSummonerGamesDto = (summoner_id, next) ->
   irelia.getRecentGamesBySummonerId "na", summoner_id, next
 
-extractAttributes = (summoner, game_dto) ->
-  summonerId: summoner._id,
+extractAttributes = (summoner_id, game_dto) ->
+  summonerId: summoner_id,
   gameId: game_dto.gameId,
   invalid: game_dto.invalid,
   gameMode: game_dto.gameMode,
@@ -57,4 +57,4 @@ extractAttributes = (summoner, game_dto) ->
   level: game_dto.level,
   createDate: game_dto.createDate,
   fellowPlayers: game_dto.fellowPlayers,
-  stats: game_dto.stats,
+  stats: game_dto.stats

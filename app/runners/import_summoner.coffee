@@ -1,7 +1,7 @@
 async = require 'async'
 irelia = require '../../lib/irelia'
 Summoner = require '../dal/summoner'
-importRecentGames = require './import_recent_games'
+ImportSummonerRecentGamesQueue = require '../queues/import_summoner_recent_games'
 
 module.exports = (summoner_id, next) ->
   async.waterfall [
@@ -12,9 +12,9 @@ module.exports = (summoner_id, next) ->
     ,
     (summoner, callback) ->
       if summoner.update
-        importRecentGames(summoner, callback)
-      else
-        callback(null)
+        ImportSummonerRecentGamesQueue.push(summoner._id)
+
+      callback(null)
   ], (err) ->
     next(err)
 

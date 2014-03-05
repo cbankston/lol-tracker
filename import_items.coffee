@@ -1,7 +1,7 @@
 require 'coffee-script'
 require './config/initializers'
 
-importItems = require './app/services/import_items'
+importItems = require './app/runners/import_items'
 
 console.log 'Importing Items'
 

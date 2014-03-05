@@ -6,8 +6,13 @@
     "password": null,
     "connectionString": null
   },
+  "redis": {
+    "host": "localhost",
+    "port": "6379"
+  },
   "riot_api": {
-    "endpoint": "http://prod.api.pvp.net/api/lol/",
+    "host": "prod.api.pvp.net",
+    "path": "/api/lol/",
     "key": null,
     "debug": false
   }

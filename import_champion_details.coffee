@@ -1,7 +1,7 @@
 require 'coffee-script'
 require './config/initializers'
 
-importChampionDetails = require './app/services/import_champion_details'
+importChampionDetails = require './app/runners/import_champion_details'
 
 console.log 'Importing Champion Details'
 

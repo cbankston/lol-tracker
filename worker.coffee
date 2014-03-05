@@ -1,19 +1,31 @@
 require 'coffee-script'
 require './config/initializers'
 
-async = require 'async'
-importSummonerQueue = require './app/queues/import_summoner'
-Summoner = require './app/dal/summoner'
+_ = require 'underscore'
+resque = require './lib/coffee_resque'
+ImportSummonerQueue = require './app/queues/import_summoner'
+ImportSummonerRecentGamesQueue = require './app/queues/import_summoner_recent_games'
 
-updateSummoners = ->
-  Summoner.findUpdateable (err, summoners) ->
-    return console.log(err) if err
-    async.each summoners
-      , (summoner, callback) ->
-        importSummonerQueue.push(summoner._id)
-        callback()
-      , (err) ->
-        console.log err if err
+rateLimiter = (runner) ->
+  () ->
+    args = _.values(arguments)
+    setTimeout ->
+      runner.apply(null, args)
+    , 1000
 
-updateSummoners()
-setInterval updateSummoners, 60 * 30 * 1000
+jobs = {}
+jobs[ImportSummonerQueue.name] = rateLimiter(ImportSummonerQueue.runner())
+jobs[ImportSummonerRecentGamesQueue.name] = rateLimiter(ImportSummonerRecentGamesQueue.runner())
+
+worker = resque.worker(ImportSummonerQueue.queue, jobs)
+worker.on 'error', (err, worker, queue, job) ->
+  console.error err.stack
+
+worker.start()
+
+trigger_exit = ->
+  worker.end ->
+    process.exit()
+
+process.on('SIGINT', trigger_exit)
+process.on('SIGTERM', trigger_exit)
