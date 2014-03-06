@@ -4,7 +4,7 @@
   "dependencies": {
     "mongoose": "~3.8.4",
     "coffee-script": "~1.6.3",
-    "irelia": "cbankston/irelia",
+    "irelia": "^0.2.1",
     "async": "~0.2.9",
     "underscore": "~1.5.2",
     "express": "~3.4.8",
