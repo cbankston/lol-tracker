@@ -17,7 +17,7 @@ index = (req, res) ->
             summoner: summoner,
             summoner_champions: summoner_champions
 
-show = (req, res) ->
+games = (req, res) ->
   Game.findByChampionIdAndSummonerId req.params.champion_id, req.params.summoner_id, (err, games) ->
     res.format
       html: () ->
@@ -34,9 +34,21 @@ show = (req, res) ->
                     champion: champion,
                     summoner: summoner
 
-                  res.render 'summoner_champions/show', data
+                  res.render 'summoner_champions/games', data
       json: () ->
         res.json games
+
+show = (req, res) ->
+  Summoner.find req.params.summoner_id, (err, summoner) ->
+    SummonerDecorator summoner, (err, summoner) ->
+      Champion.find req.params.champion_id, (err, champion) ->
+        unless champion
+          return res.json error: 'not found'
+
+        ChampionDecorator champion, (err, champion) ->
+          res.render 'summoner_champions/show',
+            summoner: summoner
+            champion: champion
 
 stats = (req, res) ->
   Summoner.find req.params.summoner_id, (err, summoner) ->
@@ -52,4 +64,5 @@ stats = (req, res) ->
 
 module.exports.index = index
 module.exports.show = show
+module.exports.games = games
 module.exports.stats = stats

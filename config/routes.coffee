@@ -6,6 +6,7 @@ Home = require '../app/controllers/home'
 routes = (app) ->
  
   app.get '/summoners/:summoner_id/champions/:champion_id/stats', SummonerChampions.stats
+  app.get '/summoners/:summoner_id/champions/:champion_id/games', SummonerChampions.games
   app.get '/summoners/:summoner_id/champions/:champion_id', SummonerChampions.show
   app.get '/summoners/:summoner_id/champions', SummonerChampions.index
 
