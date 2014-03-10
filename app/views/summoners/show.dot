@@ -1,2 +1,0 @@
-{{= it.partial('summoners/_summary', { summoner: it.summoner }) }}
-{{= it.partial('summoners/_navbar', { summoner: it.summoner }) }}

@@ -1,5 +1,4 @@
-{{= it.partial('summoners/_summary', { summoner: it.summoner }) }}
-{{= it.partial('summoners/_navbar', { summoner: it.summoner }) }}
+<h2>Stats</h2>
 
 <div class="panel panel-default">
   <div class="panel-heading">Minion Kills</div>

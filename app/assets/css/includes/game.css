@@ -1,0 +1,18 @@
+.game {
+  border: 1px solid #0C0D0E;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.game a {
+  color: #ffffff;
+}
+
+.game-victory {
+  background-color: #00611A;
+}
+
+.game-defeat {
+  background-color: #690019;
+}

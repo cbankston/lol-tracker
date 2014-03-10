@@ -5,7 +5,7 @@
     Level {{=it.game.stats.level}}
   </div>
   <div class="col-xs-7 col-sm-4 col-md-4">
-    <p class="text-center">
+    <div class="text-center">
       {{=it.game.stats.win}} ({{=it.game.subType}} {{=it.game.gameMode}})
       <br />
       {{=it.game.map}}
@@ -13,7 +13,18 @@
       {{=it.game.stats.timePlayed}}
       <br />
       {{=it.game.createDate}}
-    </p>
+    </div>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-3">
+    <div class="text-right">
+      {{=it.game.stats.championsKilled}} / {{=it.game.stats.numDeaths}} / {{=it.game.stats.assists}}
+      <br />
+      CS: {{=it.game.stats.minionsKilled}}
+      <br />
+      Gold: {{=it.game.stats.goldEarned}}
+      <br />
+      Damage: {{=it.game.stats.totalDamageDealtToChampions}}
+    </div>
   </div>
   <div class="hidden-xs col-sm-3 col-md-3">
     <div class="text-center">
@@ -58,16 +69,5 @@
         <div class="spacer-item-slot"></div>
       </div>
     </div>
-  </div>
-  <div class="col-xs-3 col-sm-3 col-md-3">
-    <p class="text-right">
-      {{=it.game.stats.championsKilled}} / {{=it.game.stats.numDeaths}} / {{=it.game.stats.assists}}
-      <br />
-      CS: {{=it.game.stats.minionsKilled}}
-      <br />
-      Gold: {{=it.game.stats.goldEarned}}
-      <br />
-      Damage: {{=it.game.stats.totalDamageDealtToChampions}}
-    </p>
   </div>
 </div>

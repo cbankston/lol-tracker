@@ -1,0 +1,26 @@
+<ul class="nav nav-sidebar">
+  <li>
+    <div class="sidebar-summary clearfix">
+      <img src="{{=it.summoner.image_path()}}" height="78" class="pull-left" />
+      <div class="info">
+        <span class="h2">{{=it.summoner.name}}</span><br />
+        <span>Level {{=it.summoner.summonerLevel}} Summoner</span>
+      </div>
+    </div>
+  </li>
+  <li><a href="/summoners/{{=it.summoner._id}}/champions">Champions</a></li>
+  <li><a href="/summoners/{{=it.summoner._id}}/games">Match History</a></li>
+  <li><a href="/summoners/{{=it.summoner._id}}/stats">Stats</a></li>
+  {{? it.champion}}
+    <li>
+      <div class="sidebar-summary clearfix">
+        <img src="{{=it.champion.image_path()}}" height="78" class="pull-left" />
+        <div class="info">
+          <span class="h2">{{=it.champion.name}}</span>
+        </div>
+      </div>
+    </li>
+    <li><a href="/summoners/{{=it.summoner._id}}/champions/{{=it.champion.id}}/games">Match History</a></li>
+    <li><a href="/summoners/{{=it.summoner._id}}/champions/{{=it.champion.id}}/stats">Stats</a></li>
+  {{?}}
+</ul>

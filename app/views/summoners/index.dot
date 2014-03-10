@@ -2,16 +2,16 @@
 
 <div class="row">
   {{~it.summoners :summoner:index}}
-    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="thumbnail">
-        <a href="/summoners/{{=summoner._id}}/champions">
+    <div class="summoner-thumbnail">
+      <a href="/summoners/{{=summoner._id}}/champions">
+        <div class="well thumbnail well-thumbnail">
           <img src="{{=summoner.image_path()}}" />
           <div class="caption">
-            <h4>{{=summoner.name}}</h4>
-            <p>Level {{=summoner.summonerLevel}}</p>
+            <span class="h5 summoner-name">{{=summoner.name}}</span><br />
+            <span class="h6 summoner-level">Level {{=summoner.summonerLevel}}</span>
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
   {{~}}
 </div>

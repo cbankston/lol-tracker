@@ -1,5 +1,4 @@
-{{= it.partial('summoners/_summary', { summoner: it.summoner }) }}
-{{= it.partial('summoners/_navbar', { summoner: it.summoner }) }}
+<h2>Game Details</h2>
 
 <div class="page-header">
   {{= it.partial('games/_summary', { game: it.game, summoner: it.summoner }) }}

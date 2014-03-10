@@ -1,6 +1,8 @@
 //= require reset
 //= require bootswatch/slate/bootstrap
+//= require dashboard
 //= require charts
+//= require_tree ./includes/
 
 .empty-item-slot, .spacer-item-slot {
   display: inline-block;

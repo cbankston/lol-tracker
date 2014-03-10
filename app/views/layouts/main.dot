@@ -11,9 +11,24 @@
 </head>
 <body>
   {{= it.partial('shared/navbar.dot') }}
-  <div class="container">
-    {{= it.content() }}
+
+  <div class="container-fluid">
+    <div class="row">
+      {{? it.summoner }}
+        <div class="col-sm-3 col-md-2 sidebar">
+          {{= it.partial('shared/sidebar.dot', { summoner: it.summoner, champion: it.champion }) }}
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          {{= it.content() }}
+        </div>
+      {{??}}
+        <div class="main">
+          {{= it.content() }}
+        </div>
+      {{?}}
+    </div>
   </div>
+
   {{= it.js("application.js") }}
 </body>
 <html>
