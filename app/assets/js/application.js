@@ -1,4 +1,5 @@
 //= require jquery/jquery
+//= require bootstrap/dist/js/bootstrap
 //= require underscore/underscore
 //= require backbone/backbone
 //= require d3/d3

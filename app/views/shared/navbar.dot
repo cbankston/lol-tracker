@@ -10,7 +10,7 @@
       <a class="navbar-brand" href="#">LoL Tracker</a>
     </div>
     <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav">
         <li><a href="/">Home</a></li>
         <li><a href="/summoners">Summoners</a></li>
       </ul>

@@ -1,0 +1,8 @@
+.navbar-toggle {
+  color: #0C0D0E;
+  border: 1px solid #0C0D0E;
+}
+
+.navbar-toggle .icon-bar {
+  background-color: #0C0D0E;
+}
